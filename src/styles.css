@@ -1,0 +1,49 @@
+.App {
+  font-family: sans-serif;
+}
+
+.clue {
+  cursor: pointer;
+}
+
+.clue:not(:last-of-type) {
+  border-bottom: 3px solid saddlebrown;
+}
+
+.clue.showAnswer .answer {
+  display: block;
+}
+
+.clue.showAnswer .question {
+  display: none;
+}
+
+.clue:not(.showAnswer) .answer {
+  display: none;
+}
+
+.clue:not(.showAnswer) .question {
+  display: block;
+}
+
+.clue .question h5 {
+  margin-top: 0;
+}
+
+.clue .question h4 {
+  margin-bottom: 5px;
+}
+
+.loading {
+  text-align: center;
+}
+
+.loading picture {
+  width: 200px;
+  height: 200px;
+}
+
+.loading img {
+  width: 100%;
+  height: auto;
+}
