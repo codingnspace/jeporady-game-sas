@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DisplayClues toggles between displaying answer and question when clicked 1`] = `
+<div
+  className="clue"
+  onClick={[Function]}
+>
+  <div
+    className="question"
+  >
+    <h4>
+      Molecule for water
+    </h4>
+    <h5>
+      For: 
+      100
+    </h5>
+  </div>
+  <h4
+    className="answer"
+  >
+    H2O
+  </h4>
+</div>
+`;
+
+exports[`DisplayClues toggles between displaying answer and question when clicked 2`] = `
+<div
+  className="clue"
+  onClick={[Function]}
+>
+  <div
+    className="question"
+  >
+    <h4>
+      Molecule for water
+    </h4>
+    <h5>
+      For: 
+      100
+    </h5>
+  </div>
+  <h4
+    className="answer"
+  >
+    H2O
+  </h4>
+</div>
+`;
+
+exports[`DisplayClues toggles between displaying answer and question when clicked 3`] = `
+<div
+  className="clue"
+  onClick={[Function]}
+>
+  <div
+    className="question"
+  >
+    <h4>
+      Molecule for water
+    </h4>
+    <h5>
+      For: 
+      100
+    </h5>
+  </div>
+  <h4
+    className="answer"
+  >
+    H2O
+  </h4>
+</div>
+`;

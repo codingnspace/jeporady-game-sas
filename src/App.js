@@ -1,7 +1,39 @@
 import React, { useEffect, useState } from "react";
-import "./styles.css";
+// Comment out styles import before running test
+import "./App.css";
 
-function JepordyQuestions() {
+const LoadingClues = () =>{ 
+  return (
+    <div className="loading">
+      <h5>Hang tight! Clues are incoming...</h5>
+      <picture>
+        <img
+          alt="Jeporady Logo"
+          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FeDAFMk-OpYo%2Fhqdefault.jpg&f=1&nofb=1"
+        />
+      </picture>
+    </div>
+  );
+};
+
+export const DisplayClues = ({clues = [], handleShowingAnswer}) => {
+  return clues.map(clue => {
+    return (
+      <div
+        className="clue"
+        key={clue.id}
+        onClick={event => handleShowingAnswer(event)}>
+        <div className="question">
+          <h4>{clue.question}</h4>
+          <h5>For: {clue.value}</h5>
+        </div>
+        <h4 className="answer">{clue.answer}</h4>
+      </div>
+    );
+  });
+};
+
+export const JeopardyQuestions = () => {
   const [clues, setClues] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const minDate = "1996-01-01";
@@ -40,41 +72,11 @@ function JepordyQuestions() {
     retrieveClues();
   }, []);
 
-  const displayClues =
-    clues &&
-    clues.map(clue => {
-      return (
-        <div
-          className="clue"
-          key={clue.id}
-          onClick={event => handleShowingAnswer(event)}
-        >
-          <div className="question">
-            <h4>{clue.question}</h4>
-            <h5>For: {clue.value}</h5>
-          </div>
-          <h4 className="answer">{clue.answer}</h4>
-        </div>
-      );
-    });
-
-  const loadingClues = (
-    <div className="loading">
-      <h5>Hang tight! Clues are incoming</h5>
-      <picture>
-        <img
-          alt="Jeporady Logo"
-          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FeDAFMk-OpYo%2Fhqdefault.jpg&f=1&nofb=1"
-        />
-      </picture>
-    </div>
-  );
-
   return (
     <article>
       <h3>Science Clues</h3>
-      {displayClues}
-      {isLoading ? loadingClues : displayClues}
+      {isLoading ? <LoadingClues /> 
+      : <DisplayClues clues={clues} handleShowingAnswer={handleShowingAnswer} />}
     </article>
   );
 }
@@ -82,8 +84,8 @@ function JepordyQuestions() {
 export default function App() {
   return (
     <main className="App">
-      <h1>Let's Play Jepordy!</h1>
-      <JepordyQuestions />
+      <h1>Let's Play Jeopardy!</h1>
+      <JeopardyQuestions />
     </main>
   );
 }
